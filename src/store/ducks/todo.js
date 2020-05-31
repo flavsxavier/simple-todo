@@ -35,8 +35,10 @@ export default function reducer(state = initialState, action) {
 				todos: state.todos.filter((todo) => todo.id !== action.payload.todo.id),
 				doneTodos: state.doneTodos.concat({
 					id: state.doneTodos.length + 1,
-					todoId: action.payload.todo.id,
-					title: action.payload.todo.title,
+					doneTodo: {
+						id: action.payload.todo.id,
+						title: action.payload.todo.title,
+					},
 				}),
 			};
 
@@ -46,7 +48,7 @@ export default function reducer(state = initialState, action) {
 				doneTodos: state.doneTodos.filter(
 					(todo) => todo.id !== action.payload.todo.id
 				),
-				todos: state.todos.concat(action.payload.todo),
+				todos: state.todos.concat(action.payload.todo.doneTodo),
 			};
 
 		default:

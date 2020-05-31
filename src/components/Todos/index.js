@@ -49,7 +49,7 @@ function Todos({ todos, doneTodos, deleteTodo, doneTodo, restoreTodo }) {
 					)}
 					{doneTodos.map((todo) => (
 						<TodoItem key={todo.id}>
-							<h1>{todo.title}</h1>
+							<h1>{todo.doneTodo.title}</h1>
 							<div className="actions">
 								<div className="restore" onClick={() => restoreTodo(todo)}>
 									<RiArrowGoBackLine />

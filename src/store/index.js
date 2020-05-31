@@ -1,11 +1,22 @@
 import { combineReducers, createStore } from 'redux';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 import todo from './ducks/todo';
 
-const reducers = combineReducers({
+const rootReducer = combineReducers({
 	todo,
 });
 
-const store = createStore(reducers);
+const persistConfig = {
+	key: 'todo',
+	storage,
+};
 
-export default store;
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store = createStore(persistedReducer);
+
+const persistor = persistStore(store);
+
+export { store, persistor };
