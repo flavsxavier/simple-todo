@@ -17,7 +17,7 @@ function TodoInput({ createTodo }) {
 	return (
 		<Input
 			type="text"
-			placeholder="Dar star no repositório deste projetinho..."
+			placeholder="Dar star no repositório deste projeto..."
 			onKeyDown={keyPress}
 		/>
 	);

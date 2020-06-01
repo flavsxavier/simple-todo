@@ -10,12 +10,15 @@ import {
 	RiArrowGoBackLine,
 } from 'react-icons/ri';
 
-import { TodoContainer, TodoList, TodoItem } from './styles';
+import { TodoContainer, TodoList, TodoItem, TodoHeader } from './styles';
 
 function Todos({ todos, doneTodos, deleteTodo, doneTodo, restoreTodo }) {
 	return (
 		<div className="container">
 			<TodoContainer>
+				<TodoHeader>
+					<h1>A fazer</h1>
+				</TodoHeader>
 				<TodoList>
 					{todos.length === 0 && (
 						<TodoItem>
@@ -41,6 +44,9 @@ function Todos({ todos, doneTodos, deleteTodo, doneTodo, restoreTodo }) {
 
 			{/* Done To-Do's */}
 			<TodoContainer>
+				<TodoHeader>
+					<h1>Feito</h1>
+				</TodoHeader>
 				<TodoList className="done-todos">
 					{doneTodos.length === 0 && (
 						<TodoItem>

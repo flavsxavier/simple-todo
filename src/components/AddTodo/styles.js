@@ -2,12 +2,15 @@ import styled from 'styled-components';
 
 export const AddTodoContainer = styled.div`
 	position: relative;
-	margin: 30px 0 15px;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
 	padding: 5px;
 	background-image: linear-gradient(
 		to right,
-		var(--gray-light-8),
-		var(--gray-light-9)
+		${({ theme }) => theme.siteGradient[0]},
+		${({ theme }) => theme.siteGradient[1]}
 	);
 	border-radius: 4px;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2), 0px 1px 10px rgba(0, 0, 0, 0.14),
