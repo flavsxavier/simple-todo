@@ -45,10 +45,13 @@ export default function reducer(state = initialState, action) {
 		case Types.RESTORE_TODO:
 			return {
 				...state,
+				todos: state.todos.concat({
+					id: state.todos.length + 1,
+					title: action.payload.todo.doneTodo.title,
+				}),
 				doneTodos: state.doneTodos.filter(
 					(todo) => todo.id !== action.payload.todo.id
 				),
-				todos: state.todos.concat(action.payload.todo.doneTodo),
 			};
 
 		default:
