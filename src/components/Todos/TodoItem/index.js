@@ -14,7 +14,6 @@ function TodoItem({
   itemKey,
   todo,
   children,
-  deleteTodo,
   doneTodo,
   restoreTodo,
 }) {
@@ -23,7 +22,6 @@ function TodoItem({
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
       if (item && dropResult) {
-        // console.log(todo);
         if (type === 'todo') doneTodo(todo);
 
         if (type === 'done') restoreTodo(todo);
@@ -34,15 +32,14 @@ function TodoItem({
     }),
   });
 
-  if (type === 'non-drag')
+  if (type === 'non-draggable')
     return <Container className={type}>{children}</Container>;
 
   return (
     <Container
       key={itemKey}
       ref={dragRef}
-      isDragging={isDragging}
-      className={type}
+      className={isDragging ? `${type} dragging` : type}
     >
       {children}
     </Container>

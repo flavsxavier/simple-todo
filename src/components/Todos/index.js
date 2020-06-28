@@ -26,7 +26,7 @@ function Todos({ todos, doneTodos, deleteTodo, doneTodo, restoreTodo }) {
         </TodoHeader>
         <TodoList name="todoList" accept="done">
           {todos.length === 0 && (
-            <TodoItem type="non-drag">
+            <TodoItem type="non-draggable">
               <h1>
                 Você não tem nenhuma tarefa{' '}
                 <Emoji emoji="😴" label="Sleeping" />
@@ -59,7 +59,7 @@ function Todos({ todos, doneTodos, deleteTodo, doneTodo, restoreTodo }) {
         </TodoHeader>
         <TodoList name="doneList" accept="todo">
           {doneTodos.length === 0 && (
-            <TodoItem type="non-drag">
+            <TodoItem type="non-draggable">
               <h1>
                 Não há tarefas realizadas <Emoji emoji="😕" label="Confused" />
               </h1>

@@ -14,8 +14,6 @@ export const Container = styled.li`
   font-weight: bold;
   transition: box-shadow 0.3s, opacity 0.3s;
 
-  opacity: ${(props) => props.isDragging && '0.5'};
-
   &:not(:last-child) {
     margin-bottom: 15px;
   }
@@ -33,8 +31,12 @@ export const Container = styled.li`
     }
   }
 
-  &.non-drag {
+  &.non-draggable {
     border-color: var(--gray-light-6);
+  }
+
+  &.dragging {
+    opacity: 0.5;
   }
 
   h1 {
